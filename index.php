@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portal Tugas Web — Riyan Setiawan</title>
-<meta name="description" content="Portfolio tugas pemrograman web PHP per pertemuan oleh Riyan Setiawan, Mahasiswa Teknik Informatika.">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+<meta name="description" content="Portfolio tugas pemrograman web PHP per pertemuan oleh Riyan Setiawan.">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
 <style>
+/* ... CSS Variables ... */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#f8f9fa;
@@ -18,12 +20,9 @@
   --primary:#343a40;
   --primary-dim:rgba(52,58,64,0.1);
   --accent:#495057;
-  --accent2:#868e96;
-  --gold:#6c757d;
-  --purple:#adb5bd;
+  --muted:#495057;
   --text:#212529;
   --text2:#343a40;
-  --muted:#495057;
   --radius:14px;
 }
 html{scroll-behavior:smooth}
@@ -36,7 +35,6 @@ body{
   overflow-x:hidden;
   line-height:1.6;
 }
-/* Overlay agar background terlihat tapi teks tetap terbaca jelas */
 body::before {
   content: '';
   position: fixed;
@@ -58,53 +56,34 @@ nav{position:sticky;top:0;z-index:200;background:rgba(255,255,255,0.85);backdrop
 .nav-links a{font-size:.82rem;font-weight:600;color:var(--muted);text-decoration:none;letter-spacing:.04em;transition:color .2s}
 .nav-links a:hover{color:var(--primary)}
 
-.hero{max-width:1100px;margin:0 auto;padding:5rem 2rem 4rem;display:flex;align-items:center;gap:4rem;position:relative;z-index:1}
-.profile-photo-wrap{flex-shrink:0;position:relative}
-.profile-photo-wrap::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--purple),var(--accent));z-index:0;animation:rotateBorder 6s linear infinite}
+/* Centered Hero */
+.hero{max-width:800px;margin:0 auto;padding:5rem 2rem 4rem;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1}
+.profile-photo-wrap{position:relative;margin-bottom:1.5rem}
+.profile-photo-wrap::before{content:'';position:absolute;inset:-4px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent),#adb5bd);z-index:0;animation:rotateBorder 6s linear infinite}
 @keyframes rotateBorder{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .profile-photo-wrap::after{content:'';position:absolute;inset:2px;border-radius:50%;background:var(--bg);z-index:1}
 .profile-photo{width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:top center;position:relative;z-index:2;display:block}
 
-.hero-content{flex:1}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text);background:var(--primary-dim);border:1px solid var(--border2);padding:5px 16px;border-radius:999px;margin-bottom:1.2rem}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:.6rem;color:var(--text)}
-.hero h1 em{font-style:italic;color:var(--text2)}
-.hero-sub{font-size:1rem;color:var(--text2);font-weight:500;margin-bottom:1.5rem}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2.5rem,5vw,3.8rem);font-weight:800;line-height:1.1;letter-spacing:-0.02em;margin-bottom:0.8rem;color:var(--text)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text);background:var(--primary-dim);border:1px solid var(--border2);padding:5px 16px;border-radius:999px;margin-bottom:1rem}
+.hero-sub{font-size:1.05rem;color:var(--text2);font-weight:500;margin-bottom:1.5rem;line-height:1.8}
+.hero-quote{font-size:0.95rem;font-style:italic;color:var(--muted);max-width:450px;line-height:1.6;font-weight:500}
 
-.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap}
-.btn-primary{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:#fff;background:var(--primary);padding:10px 24px;border-radius:8px;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s;letter-spacing:.03em}
-.btn-primary:hover{background:#212529;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
-.btn-outline{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:700;color:var(--text2);background:transparent;border:1.5px solid var(--border2);padding:10px 24px;border-radius:8px;text-decoration:none;transition:all .2s;letter-spacing:.03em}
-.btn-outline:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px);background:rgba(255,255,255,0.5)}
-
-.search-section{background:rgba(255,255,255,0.6);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 0;margin-bottom:3rem;backdrop-filter:blur(10px)}
-.search-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
-.search-label{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
-.search-wrap{flex:1;min-width:200px;position:relative}
-.search-wrap input{width:100%;padding:.75rem 1.2rem .75rem 2.6rem;background:var(--surface);border:1px solid var(--border2);border-radius:8px;color:var(--text);font-size:.86rem;font-family:'Plus Jakarta Sans',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s}
-.search-wrap input:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-dim)}
-.search-wrap input::placeholder{color:var(--muted)}
-.search-ico{position:absolute;left:.8rem;top:50%;transform:translateY(-50%);font-size:.85rem;opacity:.5}
-.search-count{font-size:.78rem;color:var(--muted);white-space:nowrap}
-
-.divider{max-width:1100px;margin:0 auto 0;padding:0 2rem}
-.divider hr{border:none;border-top:1px solid var(--border);margin-bottom:3.5rem}
-
-main{max-width:1100px;margin:0 auto;padding:0 2rem 6rem;position:relative;z-index:1}
+/* Cards */
+main{max-width:1100px;margin:0 auto;padding:2rem 2rem 6rem;position:relative;z-index:1}
 
 .section{margin-bottom:3rem}
 .sec-head{display:flex;align-items:center;gap:.75rem;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-.sec-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--primary);opacity:.25;min-width:2.2rem}
+.sec-num{font-family:'Outfit',sans-serif;font-size:1.6rem;font-weight:800;color:var(--primary);opacity:.25;min-width:2.2rem}
 .sec-label{font-size:.78rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--text2)}
 .sec-badge{margin-left:auto;font-size:.66rem;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;background:var(--surface2);border:1px solid var(--border);padding:3px 10px;border-radius:4px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.5rem}
 
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;display:flex;flex-direction:column;transition:transform .28s cubic-bezier(.34,1.56,.64,1),box-shadow .28s,border-color .25s;position:relative;overflow:hidden;user-select:none;text-decoration:none;color:inherit;box-shadow:0 4px 15px rgba(0,0,0,0.03)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);cursor:pointer;display:flex;flex-direction:column;transition:transform .28s cubic-bezier(.34,1.56,.64,1),box-shadow .28s,border-color .25s;position:relative;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 4px 15px rgba(0,0,0,0.03)}
 .card:hover{transform:translateY(-5px);border-color:var(--border2);box-shadow:0 16px 48px rgba(0,0,0,0.1)}
 
-.card-preview{height:160px;background-size:cover;background-position:top center;border-bottom:1px solid var(--border);background-color:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:3rem;position:relative;overflow:hidden;}
-.card-preview::after {content:'';position:absolute;inset:0;background:linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.05));}
+.card-preview{height:140px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-family:'Outfit',sans-serif;font-weight:800;color:#fff;letter-spacing:1px;text-transform:uppercase}
 .card-content{padding:1.2rem 1.5rem;display:flex;flex-direction:column;gap:.65rem;flex:1}
 
 .card-head{display:flex;align-items:center;justify-content:space-between;gap:.5rem}
@@ -129,13 +108,9 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
 .footer-info b{color:var(--text2);font-weight:600}
 
 @media(max-width:768px){
-  .hero{flex-direction:column;text-align:center;padding:3rem 1.5rem 2.5rem;gap:2rem}
-  .hero-cta{justify-content:center}
-  .grid{grid-template-columns:1fr}
   nav{padding:0 1.2rem}
   .nav-links{display:none}
   .footer-inner{flex-direction:column;text-align:center}
-  .search-inner{flex-direction:column;align-items:stretch}
 }
 </style>
 </head>
@@ -150,48 +125,29 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
 </nav>
 
 <section class="hero" id="profile">
-  <div class="profile-left" style="display:flex; flex-direction:column; align-items:center; gap:1.5rem;">
-    <div class="profile-photo-wrap">
-      <img class="profile-photo" src="images/1.jpeg" alt="Foto Riyan Setiawan">
-    </div>
-    <div class="profile-quote" style="font-size:0.88rem; font-style:italic; color:var(--muted); text-align:center; max-width:240px; line-height:1.6; font-weight:500;">
-      "Ngoding itu ibarat main puzzle; satu error ketemu, satu jalan sukses terbuka. Keep coding, keep shining!" ✨
-    </div>
+  <div class="profile-photo-wrap">
+    <img class="profile-photo" src="images/1.jpeg" alt="Foto Riyan Setiawan">
   </div>
-  <div class="hero-content">
-    <div class="hero-eyebrow">✦ Mahasiswa Aktif</div>
-    <h1>Riyan<br><em>Setiawan</em></h1>
-    <p class="hero-sub">
-      Teknik Informatika · Pemrograman Web<br>
-      <span style="display:inline-block; margin-top:8px; font-size:0.9rem;">
-        <strong>NIM:</strong> 221011450590 &nbsp;|&nbsp; <strong>Kelas:</strong> 07TPLK002
-      </span>
-    </p>
-    <div class="hero-cta">
-      <a href="#tasks" class="btn-primary">📂 Lihat Tugas</a>
-      <a href="mailto:riyansetiawan@email.com" class="btn-outline">✉ Hubungi Saya</a>
-    </div>
+  <h1>Riyan Setiawan</h1>
+  <div class="hero-eyebrow">✦ Mahasiswa Aktif</div>
+  <p class="hero-sub">
+    Teknik Informatika · Pemrograman Web<br>
+    <span style="display:inline-block; margin-top:8px; font-size:0.95rem;">
+      <strong>NIM:</strong> 221011450590 &nbsp;|&nbsp; <strong>Kelas:</strong> 07TPLK002
+    </span>
+  </p>
+  <div class="hero-quote">
+    "Ngoding itu ibarat main puzzle; satu error ketemu, satu jalan sukses terbuka. Keep coding, keep shining!" ✨
   </div>
 </section>
 
-<div class="search-section" id="tasks">
-  <div class="search-inner">
-    <span class="search-label">Filter Tugas</span>
-    <div class="search-wrap">
-      <span class="search-ico">🔍</span>
-      <input type="text" id="search" placeholder="Cari berdasarkan nama atau topik..." oninput="filterCards()">
-    </div>
-    <span class="search-count" id="count-label">Memuat...</span>
-  </div>
-</div>
+<main id="tasks">
 
-<main>
-
-  <div class="section" id="sec-3" data-section>
+  <div class="section" data-section>
     <div class="sec-head"><span class="sec-num">03</span><span class="sec-label">Pertemuan 3 - 9</span><span class="sec-badge">Dasar PHP</span></div>
     <div class="grid">
       <a class="card" href="pertemuan3soal1.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background:var(--surface2)">👤</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #0d6efd, #0dcaf0);">TUGAS 3</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-blue">Variabel</span></div>
           <div class="card-title">Biodata & Kalkulator</div>
@@ -200,7 +156,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan4soal1 SWITCHdanCASE.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background:var(--surface2)">🔀</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #6610f2, #d63384);">TUGAS 4</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-purple">Kondisi</span></div>
           <div class="card-title">Switch Case & IF Else</div>
@@ -209,7 +165,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan5soal3.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background:var(--surface2)">🔁</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #198754, #20c997);">TUGAS 5</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-green">Loop</span></div>
           <div class="card-title">Array & Perulangan</div>
@@ -218,7 +174,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan6tugas1.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background:var(--surface2)">📝</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #fd7e14, #ffc107);">TUGAS 6</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-gold">Form</span></div>
           <div class="card-title">Buku Tamu</div>
@@ -227,8 +183,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan7soal3.php" target="_blank" rel="noopener">
-        <div class="card-head"></div>
-        <div class="card-preview" style="background:var(--surface2)">🔢</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #dc3545, #fd7e14);">TUGAS 7</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-red">Matriks</span></div>
           <div class="card-title">Perkalian Matriks</div>
@@ -237,7 +192,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan9soal1tgldanwaktu.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background:var(--surface2)">📅</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #0dcaf0, #0d6efd);">TUGAS 9</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-blue">Fungsi</span></div>
           <div class="card-title">Date & String</div>
@@ -248,12 +203,11 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
     </div>
   </div>
 
-  <div class="section" id="sec-10" data-section>
+  <div class="section" data-section>
     <div class="sec-head"><span class="sec-num">10</span><span class="sec-label">Pertemuan 10 - 13</span><span class="sec-badge">Lanjutan</span></div>
     <div class="grid">
-      <!-- Pertemuan 10 -->
       <a class="card" href="pertemuan10.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background-image: url('p10foto/1.png')"></div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #212529, #495057);">TUGAS 10</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-dark">P10</span></div>
           <div class="card-title">Tugas Pertemuan 10</div>
@@ -261,9 +215,8 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
           <div class="card-footer"><span class="card-cta">Buka Tugas →</span><span class="card-lang">PHP</span></div>
         </div>
       </a>
-      <!-- Pertemuan 11 -->
       <a class="card" href="Pertemuan11.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background-image: url('p11 foto/1.png')"></div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #6f42c1, #0d6efd);">TUGAS 11</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-dark">P11</span></div>
           <div class="card-title">Tugas Pertemuan 11</div>
@@ -271,9 +224,8 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
           <div class="card-footer"><span class="card-cta">Buka Tugas →</span><span class="card-lang">PHP</span></div>
         </div>
       </a>
-      <!-- Pertemuan 12 -->
       <a class="card" href="pertemuan12.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background-image: url('p12foto/11.png')"></div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #d63384, #dc3545);">TUGAS 12</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-dark">P12</span></div>
           <div class="card-title">Tugas Pertemuan 12</div>
@@ -281,9 +233,8 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
           <div class="card-footer"><span class="card-cta">Buka Tugas →</span><span class="card-lang">PHP</span></div>
         </div>
       </a>
-      <!-- Pertemuan 13 -->
       <a class="card" href="pertemuan13.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background-image: url('p13foto/1.png')"></div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #198754, #0dcaf0);">TUGAS 13</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-dark">P13</span></div>
           <div class="card-title">Tugas Pertemuan 13</div>
@@ -294,11 +245,11 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
     </div>
   </div>
 
-  <div class="section" id="sec-14" data-section>
+  <div class="section" data-section>
     <div class="sec-head"><span class="sec-num">14</span><span class="sec-label">Pertemuan 14 - 19</span><span class="sec-badge">Aplikasi Database</span></div>
     <div class="grid">
       <a class="card" href="pertemuan14search_produk.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background:var(--surface2)">🔍</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #0d6efd, #6610f2);">TUGAS 14</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-blue">Search</span></div>
           <div class="card-title">Pencarian & Sorting</div>
@@ -307,7 +258,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan15index.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background:var(--surface2)">📚</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #dc3545, #d63384);">TUGAS 15</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-red">App</span></div>
           <div class="card-title">Aplikasi Perpustakaan</div>
@@ -316,7 +267,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan16.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background:var(--surface2)">🛒</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #20c997, #198754);">TUGAS 16</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-green">Session</span></div>
           <div class="card-title">Keranjang Belanja</div>
@@ -325,7 +276,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan17.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background:var(--surface2)">🛵</div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #ffc107, #fd7e14);">TUGAS 17</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-gold">Data</span></div>
           <div class="card-title">Data Driver Gojek</div>
@@ -334,7 +285,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan18.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background-image: url('p18foto/1.png')"></div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #495057, #212529);">TUGAS 18</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-dark">P18</span></div>
           <div class="card-title">Tugas Pertemuan 18</div>
@@ -343,7 +294,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         </div>
       </a>
       <a class="card" href="pertemuan19.php" target="_blank" rel="noopener">
-        <div class="card-preview" style="background-image: url('p19foto/mouse.jpg')"></div>
+        <div class="card-preview" style="background:linear-gradient(135deg, #6c757d, #343a40);">TUGAS 19</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-dark">P19</span></div>
           <div class="card-title">Tugas Pertemuan 19</div>
@@ -365,24 +316,5 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
   </div>
 </footer>
 
-<script>
-const cards = document.querySelectorAll('.card');
-document.getElementById('count-label').textContent = cards.length + ' tugas tersedia';
-
-function filterCards() {
-  const q = document.getElementById('search').value.toLowerCase();
-  let visible = 0;
-  cards.forEach(c => {
-    const match = c.innerText.toLowerCase().includes(q);
-    c.style.display = match ? '' : 'none';
-    if (match) visible++;
-  });
-  document.getElementById('count-label').textContent = visible + ' tugas ditemukan';
-  document.querySelectorAll('.section[data-section]').forEach(s => {
-    const hasVisible = [...s.querySelectorAll('.card')].some(c => c.style.display !== 'none');
-    s.style.display = hasVisible ? '' : 'none';
-  });
-}
-</script>
 </body>
 </html>
