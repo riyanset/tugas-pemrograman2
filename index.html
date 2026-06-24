@@ -316,5 +316,13 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('a.card').forEach(card => {
+  card.onclick = function(e) {
+    e.preventDefault();
+    alert('Server Vercel tidak mendukung eksekusi file PHP & MySQL. Silakan buka aplikasi ini melalui localhost (XAMPP) di komputer Anda untuk melihat dan mencoba tugas ini.');
+  };
+});
+</script>
 </body>
 </html>
