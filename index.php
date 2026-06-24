@@ -150,13 +150,23 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
 </nav>
 
 <section class="hero" id="profile">
-  <div class="profile-photo-wrap">
-    <img class="profile-photo" src="images/1.jpeg" alt="Foto Riyan Setiawan">
+  <div class="profile-left" style="display:flex; flex-direction:column; align-items:center; gap:1.5rem;">
+    <div class="profile-photo-wrap">
+      <img class="profile-photo" src="images/1.jpeg" alt="Foto Riyan Setiawan">
+    </div>
+    <div class="profile-quote" style="font-size:0.88rem; font-style:italic; color:var(--muted); text-align:center; max-width:240px; line-height:1.6; font-weight:500;">
+      "Ngoding itu ibarat main puzzle; satu error ketemu, satu jalan sukses terbuka. Keep coding, keep shining!" ✨
+    </div>
   </div>
   <div class="hero-content">
     <div class="hero-eyebrow">✦ Mahasiswa Aktif</div>
     <h1>Riyan<br><em>Setiawan</em></h1>
-    <p class="hero-sub">Teknik Informatika · Pemrograman Web</p>
+    <p class="hero-sub">
+      Teknik Informatika · Pemrograman Web<br>
+      <span style="display:inline-block; margin-top:8px; font-size:0.9rem;">
+        <strong>NIM:</strong> 221011450590 &nbsp;|&nbsp; <strong>Kelas:</strong> 07TPLK002
+      </span>
+    </p>
     <div class="hero-cta">
       <a href="#tasks" class="btn-primary">📂 Lihat Tugas</a>
       <a href="mailto:riyansetiawan@email.com" class="btn-outline">✉ Hubungi Saya</a>
