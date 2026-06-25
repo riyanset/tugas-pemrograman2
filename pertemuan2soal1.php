@@ -42,8 +42,8 @@
 <div class="judul">BIODATA</div>
 
 <?php
-$nama = "SyahrulFadhilah";
-$email = "fadilahsyahrul956@gmail.com";
+$nama = "Budi Santoso";
+$email = "budi.santoso@email.com";
 $jurusan = "Teknik Informatika";
 $hobi = "futsal";
 ?>

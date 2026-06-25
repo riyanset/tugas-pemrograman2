@@ -1,0 +1,9 @@
+DirectoryIndex index.php index.html
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Arahkan index.html ke index.php agar portal PHP selalu aktif
+    RewriteRule ^index\.html$ index.php [L,R=301]
+</IfModule>

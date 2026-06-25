@@ -1,9 +1,9 @@
 <?php
 // Array 2 dimensi
 $siswa = [
-    ["jaka", 80],
-    ["cinta", 75],
-    ["raisya", 90]
+    ["Andi Pratama", 80],
+    ["Siti Rahma", 75],
+    ["Dedi Wijaya", 90]
 ];
 
 // Menampilkan data

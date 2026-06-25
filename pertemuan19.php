@@ -1,18 +1,6 @@
 <?php
 
-$conn=mysqli_connect(
-    "localhost",
-    "root",
-    "",
-    "toko_online"
-);
-
-
-if(!$conn){
-
-    die("Database gagal terhubung");
-
-}
+require_once __DIR__ . '/koneksi.php';
 
 
 
@@ -162,6 +150,10 @@ $data_produk=mysqli_query($conn,
 
 );
 
+if (!$data_produk) {
+    die('<h2>Database belum siap</h2><p>Tabel <code>produk</code> tidak ditemukan. Import file <code>database/import_infinityfree.sql</code> (InfinityFree) atau <code>database/toko_online.sql</code> (XAMPP) lewat phpMyAdmin.</p>');
+}
+
 
 
 
@@ -181,7 +173,7 @@ FROM transaksi"
 );
 
 
-$jumlah=mysqli_fetch_assoc($total_transaksi);
+$jumlah=mysqli_fetch_assoc($total_transaksi) ?: ['jumlah' => 0];
 
 
 
@@ -236,7 +228,7 @@ ORDER BY id_transaksi DESC"
 <head>
 
 <title>
-Sistem Toko Online
+Sistem Toko Pakaian Online
 </title>
 
 
@@ -306,32 +298,38 @@ box-shadow:0 5px 15px #ddd;
 
 
 
-.item{
-
-border:1px solid #ddd;
-
-padding:10px;
-
-margin-bottom:10px;
-
-border-radius:10px;
-
-
-}
-
-
-
-img{
-
+.item-thumb{
 width:90px;
-
 height:90px;
-
-object-fit:cover;
-
+border-radius:8px;
+background:#e2e8f0;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+flex-shrink:0;
 }
 
+.item-thumb img{
+width:90px;
+height:90px;
+object-fit:cover;
+border-radius:8px;
+}
 
+.item{
+display:flex;
+gap:12px;
+align-items:flex-start;
+border:1px solid #ddd;
+padding:10px;
+margin-bottom:10px;
+border-radius:10px;
+}
+
+.item-info{
+flex:1;
+}
 
 .harga{
 
@@ -441,7 +439,7 @@ border:1px solid #ddd;
 <div class="header">
 
 <h1>
-🛒 Sistem Informasi Toko Online
+🛒 Sistem Informasi Toko Pakaian
 </h1>
 
 </div>
@@ -477,9 +475,18 @@ border:1px solid #ddd;
 
 <div class="item">
 
+<?php
+$gambar = $p['gambar'] ?? '';
+if ($gambar !== '' && file_exists(__DIR__ . '/p19foto/' . $gambar)) {
+?>
+<div class="item-thumb">
+<img src="p19foto/<?php echo htmlspecialchars($gambar); ?>" alt="<?php echo htmlspecialchars($p['nama_produk']); ?>">
+</div>
+<?php } else { ?>
+<div class="item-thumb">👕</div>
+<?php } ?>
 
-<img src="p19foto/<?php echo $p['gambar']; ?>">
-
+<div class="item-info">
 
 <h3>
 
@@ -510,6 +517,7 @@ Stok :
 
 </p>
 
+</div>
 
 </div>
 

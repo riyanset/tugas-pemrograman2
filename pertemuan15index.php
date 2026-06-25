@@ -1,10 +1,6 @@
 <?php
 
-$conn = mysqli_connect("localhost","root","","toko_online");
-
-if(!$conn){
-    die("Koneksi gagal");
-}
+require_once __DIR__ . '/koneksi.php';
 
 if(isset($_POST['pinjam'])){
 
@@ -43,18 +39,12 @@ if(isset($_POST['pinjam'])){
 
     }else{
 
-        // jalankan procedure
         $result = mysqli_query(
             $conn,
-            "CALL pinjam_buku('$nama',$id_buku,$jumlah)"
+            "UPDATE buku SET stok = stok - $jumlah WHERE id = $id_buku AND stok >= $jumlah"
         );
 
-        // clear result procedure
-        while(mysqli_more_results($conn)){
-            mysqli_next_result($conn);
-        }
-
-        if($result){
+        if($result && mysqli_affected_rows($conn) > 0){
 
             $response = [
                 'status' => 'success',
@@ -65,7 +55,7 @@ if(isset($_POST['pinjam'])){
 
             $response = [
                 'status' => 'error',
-                'message' => mysqli_error($conn)
+                'message' => 'Gagal memperbarui stok buku'
             ];
         }
     }
@@ -291,7 +281,11 @@ button:hover{
 
                 $data = mysqli_query($conn,"SELECT * FROM buku");
 
-                while($d = mysqli_fetch_assoc($data)){
+                if (!$data) {
+                    echo '<tr><td colspan="3">Tabel <code>buku</code> tidak ditemukan. Import file SQL di folder <code>database/</code> lewat phpMyAdmin.</td></tr>';
+                }
+
+                while($data && ($d = mysqli_fetch_assoc($data))){
 
                     $stok = $d['stok'];
 

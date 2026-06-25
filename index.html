@@ -279,8 +279,8 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         <div class="card-preview" style="background:linear-gradient(135deg, #ffc107, #fd7e14);">TUGAS 17</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-gold">Data</span></div>
-          <div class="card-title">Data Driver Gojek</div>
-          <div class="card-desc">Pertemuan 17: Pengolahan Data.</div>
+          <div class="card-title">Data Kelas Mahasiswa</div>
+          <div class="card-desc">Pertemuan 17: Penyimpanan data mahasiswa dengan cookie.</div>
           <div class="card-footer"><span class="card-cta">Buka Tugas →</span><span class="card-lang">PHP</span></div>
         </div>
       </a>
@@ -298,7 +298,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         <div class="card-content">
           <div class="card-head"><span class="badge b-dark">P19</span></div>
           <div class="card-title">Tugas Pertemuan 19</div>
-          <div class="card-desc">Aplikasi E-Commerce Barang Elektronik.</div>
+          <div class="card-desc">Aplikasi E-Commerce Toko Pakaian.</div>
           <div class="card-footer"><span class="card-cta">Buka Tugas →</span><span class="card-lang">PHP</span></div>
         </div>
       </a>
@@ -311,18 +311,11 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
   <div class="footer-inner">
     <div>
       <div class="footer-brand">⟨/⟩ Riyan Setiawan</div>
-      <div class="footer-info"><b>Teknik Informatika</b> · Pemrograman Web<br>2026 · Semua hak dilindungi</div>
+      <div class="footer-info"><b>Teknik Informatika</b> · Pemrograman Web<br><span id="year"></span> · Semua hak dilindungi</div>
     </div>
   </div>
 </footer>
 
-<script>
-document.querySelectorAll('a.card').forEach(card => {
-  card.onclick = function(e) {
-    e.preventDefault();
-    alert('Server Vercel tidak mendukung eksekusi file PHP & MySQL. Silakan buka aplikasi ini melalui localhost (XAMPP) di komputer Anda untuk melihat dan mencoba tugas ini.');
-  };
-});
-</script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

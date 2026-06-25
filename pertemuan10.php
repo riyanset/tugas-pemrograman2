@@ -100,7 +100,7 @@ foreach ($foto as $data) {
 
     echo "
     <div class='foto'>
-        <img src='p11 foto/".$data['gambar']."'>
+        <img src='p10foto/".$data['gambar']."'>
         
         <h3>".$data['judul']."</h3>
         

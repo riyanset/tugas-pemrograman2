@@ -66,7 +66,7 @@ $foto = [
     [
         "gambar" => "111.png",
         "judul" => "solusi eror",
-        "ket" => "Solusi tambahkan nma _driver ."
+        "ket" => "Solusi tambahkan nama_mahasiswa."
     ],
     [
         "gambar" => "2.png",

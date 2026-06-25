@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
@@ -279,8 +279,8 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         <div class="card-preview" style="background:linear-gradient(135deg, #ffc107, #fd7e14);">TUGAS 17</div>
         <div class="card-content">
           <div class="card-head"><span class="badge b-gold">Data</span></div>
-          <div class="card-title">Data Driver Gojek</div>
-          <div class="card-desc">Pertemuan 17: Pengolahan Data.</div>
+          <div class="card-title">Data Kelas Mahasiswa</div>
+          <div class="card-desc">Pertemuan 17: Penyimpanan data mahasiswa dengan cookie.</div>
           <div class="card-footer"><span class="card-cta">Buka Tugas →</span><span class="card-lang">PHP</span></div>
         </div>
       </a>
@@ -298,7 +298,7 @@ footer{background:rgba(255,255,255,0.7);border-top:1px solid var(--border);paddi
         <div class="card-content">
           <div class="card-head"><span class="badge b-dark">P19</span></div>
           <div class="card-title">Tugas Pertemuan 19</div>
-          <div class="card-desc">Aplikasi E-Commerce Barang Elektronik.</div>
+          <div class="card-desc">Aplikasi E-Commerce Toko Pakaian.</div>
           <div class="card-footer"><span class="card-cta">Buka Tugas →</span><span class="card-lang">PHP</span></div>
         </div>
       </a>
